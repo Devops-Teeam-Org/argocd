@@ -4,16 +4,16 @@ metadata:
   namespace: argocd
   labels:
     run: nginx
-  name: nginx-deploy-blue
+  name: nginx-deploy-green
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: nginx-blue
+      run: nginx-green
   template:
     metadata:
       labels:
-        run: nginx-blue
+        run: nginx-green
     spec:
       volumes:
       - name: webdata
