@@ -4,11 +4,11 @@ metadata:
   name: nginx-blue 
   namespace: argocd 
   labels:
-    app: nginx 
+    app: nginx-deploy-blue 
 spec:
   ports:
   - port: 8080
     name: nginx 
   type: ClusterIP
   selector:
-    app: nginx
+    app: nginx-deploy-blue
