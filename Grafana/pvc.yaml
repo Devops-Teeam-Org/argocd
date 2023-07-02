@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  namespace: argocd
+  name: grafana-pv
+spec:
+  storageClassName: managed-nfs-storage
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: /srv/nfs/kubedata/grafana
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: argocd
+  name: grafana-pvc
+spec:
+  storageClassName: managed-nfs-storage
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
